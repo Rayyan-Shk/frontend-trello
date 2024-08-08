@@ -11,13 +11,11 @@ function App() {
     <Router>
       <AuthProvider>
         <Routes>
+          <Route path="/" element={<Navigate to="/signin" />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/boards" element={<ProtectedRoute element={<Board />} />} />
-          {/* Redirect from root to /boards */}
-          <Route path="/" element={<Navigate to="/boards" />} />
-          {/* Catch-all route for any undefined routes */}
-          <Route path="*" element={<Navigate to="/boards" />} />
+          <Route path="*" element={<Navigate to="/signin" />} />
         </Routes>
       </AuthProvider>
     </Router>
